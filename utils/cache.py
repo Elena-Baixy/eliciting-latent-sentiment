@@ -19,7 +19,7 @@ def residual_sentiment_sim_by_head(
         Tensor, "components batch d_model"
     ] = cache.apply_ln_to_stack(
         residual_stack, layer=-1, pos_slice=-1
-    )
+    ) #apply layer norm
     if centre_residuals:
         residual_stack -= einops.reduce(
             residual_stack, 
